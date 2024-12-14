@@ -3,40 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Автоматическое видео с Vimeo</title>
+    <title>Видео с прозрачным фоном</title>
     <style>
+        /* Убираем отступы и делаем фон страницы прозрачным */
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        body {
+        /* Прозрачный фон сайта */
+        html, body {
+            height: 100%; 
+            background-color: transparent; /* Прозрачный фон */
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #F4F4F4;
         }
 
+        /* Внешний контейнер с серым фоном и скругленными краями */
+        .outer-container {
+            width: 100%; 
+            max-width: 900px; 
+            padding: 20px; 
+            background-color: #e0e0e0; /* Серый фон */
+            border-radius: 24px; /* Скругленные углы */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Тень вокруг контейнера */
+        }
+
+        /* Контейнер для видео внутри серого контейнера */
         .video-container {
+            width: 100%; 
+            aspect-ratio: 16 / 9; 
+            border-radius: 16px; /* Скругленные углы внутреннего контейнера */
+            overflow: hidden; 
             position: relative;
-            width: 100%; /* видео займет всю ширину родителя */
-            max-width: 1200px; /* ограничение максимальной ширины */
-            padding-top: 56.25%; /* 16:9 соотношение */
-            border-radius: 24px;
-            overflow: hidden; /* чтобы скрыть края видео */
         }
 
-        .video-container::before {
-            content: "";
-            display: block;
-            padding-top: 56.25%; /* Соотношение 16:9 */
-        }
-
+        /* Стили для iframe */
         iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
             border: none;
@@ -45,12 +50,16 @@
 </head>
 <body>
 
-    <div class="video-container">
-        <iframe 
-            src="https://player.vimeo.com/video/1038950728?autoplay=1&muted=1&loop=1&background=1&controls=0" 
-            allow="autoplay; fullscreen; picture-in-picture" 
-            allowfullscreen>
-        </iframe>
+    <!-- Внешний контейнер с серым фоном -->
+    <div class="outer-container">
+        <!-- Контейнер для видео внутри серого контейнера -->
+        <div class="video-container">
+            <iframe 
+                src="https://player.vimeo.com/video/1038950728?autoplay=1&muted=1&loop=1&background=1&controls=0" 
+                allow="autoplay; fullscreen; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
     </div>
 
 </body>
