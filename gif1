@@ -1,1 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Видео с прозрачным фоном</title>
+    <style>
+        /* Убираем отступы и делаем фон страницы прозрачным */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
+        /* Прозрачный фон сайта */
+        html, body {
+            height: 100%; 
+            background-color: transparent; /* Прозрачный фон */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Внешний контейнер с серым фоном и скругленными краями */
+        .outer-container {
+            width: 1200px; 
+            max-width: 1200px;
+            padding: 20px 20px 20px 20px;
+            background-color: #F5F5F5; /* Серый фон */
+            border-radius: 24px; /* Скругленные углы */
+        }
+
+        /* Контейнер для видео внутри серого контейнера */
+        .video-container {
+            width: 100%; 
+            height: 100%; 
+            aspect-ratio: 16 / 9.5;
+            border-radius: 10px; /* Скругленные углы внутреннего контейнера */
+            overflow: hidden; 
+            position: relative;
+        }
+
+        /* Стили для iframe */
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Внешний контейнер с серым фоном -->
+    <div class="outer-container">
+        <!-- Контейнер для видео внутри серого контейнера -->
+        <div class="video-container">
+            <iframe 
+                src="https://media.giphy.com/media/3rgXBOP3Udo2syUGsM/giphy.gif?cid=790b7611akuygn3mw0hwqvhuur31sc313pqn2k688899xmad&ep=v1_gifs_search&rid=giphy.gif&ct=g" 
+                allow="autoplay; fullscreen; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+</body>
+</html>
