@@ -5,41 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Растягиваемая гифка</title>
     <style>
-        /* Убираем отступы и растягиваем страницу */
+        /* Обнуляем стили */
         html, body {
-            width: 100%;
-            height: 100%;
             margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: transparent;
+            background: transparent;
         }
 
-        /* Контейнер, который занимает 100% родительского iframe */
-        .outer-container {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Гибкий контейнер для видео */
+        /* Контейнер для гифки */
         .video-wrapper {
-            position: relative;
             width: 100%;
             height: 100%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         iframe {
-            position: absolute;
             width: 100%;
             height: 100%;
             border: none;
         }
 
-        /* Блокирует взаимодействие с iframe */
+        /* Блокировка взаимодействия с iframe */
         .overlay {
             position: absolute;
             top: 0;
@@ -51,11 +45,9 @@
 </head>
 <body>
 
-    <div class="outer-container">
-        <div class="video-wrapper">
-            <iframe src="https://giphy.com/embed/3rgXBOP3Udo2syUGsM" allowFullScreen></iframe>
-            <div class="overlay"></div>
-        </div>
+    <div class="video-wrapper">
+        <iframe src="https://giphy.com/embed/3rgXBOP3Udo2syUGsM" allowFullScreen></iframe>
+        <div class="overlay"></div>
     </div>
 
 </body>
