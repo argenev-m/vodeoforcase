@@ -1,60 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Видео с прозрачным фоном</title>
-    <style>
-        /* Центрируем контейнер на странице */
-        html, body {
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: transparent;
-            margin: 0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Видео с прозрачным фоном</title>
+<style>
+/* Убираем отступы и делаем фон страницы прозрачным */
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
 
-        /* Внешний контейнер с фоном и скругленными углами */
-        .outer-container {
-            width: 1200px;
-            padding: 20px;
-            background-color: #F5F5F5;
-            border-radius: 24px;
-        }
+/* Прозрачный фон сайта */
+html, body {
+height: 100%;
+background-color: transparent; /* Прозрачный фон */
+display: flex;
+justify-content: center;
+align-items: center;
+}
 
-        /* Обёртка для iframe */
-        .video-wrapper {
-            position: relative;
-            width: 100%;
-            padding-bottom: 52%;
-        }
+/* Внешний контейнер с серым фоном и скругленными краями */
+.outer-container {
+width: 1200px;
+max-width: 1200px;
+padding: 20px 20px 20px 20px;
+background-color: #F5F5F5; /* Серый фон */
+border-radius: 24px; /* Скругленные углы */
+}
 
-        iframe {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
+/* Контейнер для видео внутри серого контейнера */
+.video-container {
+width: 100%;
+height: 100%;
+aspect-ratio: 16 / 9.5;
+border-radius: 10px; /* Скругленные углы внутреннего контейнера */
+overflow: hidden;
+position: relative;
+}
 
-        /* Блокирует взаимодействие с iframe */
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
+/* Стили для iframe */
+iframe {
+width: 100%;
+height: 100%;
+border: none;
+}
+</style>
 </head>
 <body>
 
-    <div class="outer-container">
-        <div class="video-wrapper">
-            <iframe src="https://giphy.com/embed/3rgXBOP3Udo2syUGsM" allowFullScreen></iframe>
-            <div class="overlay"></div>
-        </div>
-    </div>
+<!-- Внешний контейнер с серым фоном -->
+<div class="outer-container">
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 52%;">
+<iframe
+src="https://giphy.com/embed/3rgXBOP3Udo2syUGsM"
+width="100%" height="100%"
+style="position: absolute; border: none;"
+frameBorder="0" allowFullScreen>
+</iframe>
+<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+</div>
+<!-- Контейнер для видео внутри серого контейнера
+<div class="video-container">
+<iframe
+src="https://giphy.com/3rgXBOP3Udo2syUGsM"
+allow="autoplay; fullscreen; picture-in-picture"
+allowfullscreen>
+</iframe>
+</div>
+-->
+</div>
 
 </body>
 </html>
