@@ -15,15 +15,16 @@
             justify-content: center;
             align-items: center;
             background: transparent;
+            overflow: hidden; /* Убираем скролл */
         }
 
         /* Контейнер с пропорциями гифки */
         .video-wrapper {
             width: 100%;
             height: 0;
-            padding-bottom: 52%; /* Сохраняет соотношение сторон */
+            padding-bottom: 52%; /* Соотношение сторон */
             position: relative;
-            overflow: hidden; /* Обрезаем края */
+            overflow: hidden; /* Обрезаем углы */
             border-radius: 32px; /* Скругленные углы */
         }
 
@@ -34,11 +35,7 @@
             top: 0;
             left: 0;
             border: none;
-
-            /* Гарантируем, что углы будут скруглены во всех браузерах */
-            border-radius: 32px; 
-            mask-image: radial-gradient(circle, rgba(0,0,0,1) 100%, rgba(0,0,0,0) 100%);
-            -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 100%, rgba(0,0,0,0) 100%);
+            border-radius: 32px; /* Скругление углов для iframe */
         }
 
         /* Блокировка взаимодействия с iframe */
@@ -48,7 +45,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            border-radius: 32px; /* Скругление углов */
             pointer-events: none; /* Оставляем кликабельность */
         }
     </style>
@@ -56,7 +52,7 @@
 <body>
 
     <div class="video-wrapper">
-        <iframe src="https://giphy.com/embed/GzCp9sGvlWKOc" class="giphy-embed" allowFullScreen></iframe>
+        <iframe src="https://giphy.com/embed/GzCp9sGvlWKOc" allowFullScreen></iframe>
         <div class="overlay"></div>
     </div>
 
