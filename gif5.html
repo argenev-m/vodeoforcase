@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Растягиваемая гифка</title>
+    <style>
+        /* Убираем отступы и делаем фон прозрачным */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+            overflow: hidden; /* Убираем скролл */
+        }
+
+        /* Контейнер с пропорциями гифки */
+        .video-wrapper {
+            width: 100%;
+            height: 0;
+            padding-bottom: 52%; /* Соотношение сторон */
+            position: relative;
+            overflow: hidden; /* Обрезаем углы */
+            border-radius: 32px; /* Скругленные углы */
+        }
+
+        iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            border: none;
+            border-radius: 32px; /* Скругление углов для iframe */
+            pointer-events: none; /* Блокируем взаимодействие с iframe */
+        }
+
+        /* Блокировка взаимодействия с iframe */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Оставляем кликабельность */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="video-wrapper">
+        <iframe src="https://giphy.com/embed/B2vBunhgt9Pc4" allowFullScreen></iframe>
+        <div class="overlay"></div>
+    </div>
+
+</body>
+</html>
